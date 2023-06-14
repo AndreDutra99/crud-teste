@@ -19,7 +19,7 @@
     <input type="submit" value="Adicionar">
   </form>
 
-  <h2>Dados dos Usuários</h2>
+  <h2>Dados dos Carros</h2>
   <table>
     <tr>
       <th>ID</th>
