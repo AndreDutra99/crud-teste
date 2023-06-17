@@ -70,10 +70,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Editar Usuário</title>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsável pela responsividade do site-->
+    <link rel="stylesheet" href="carro.css"> 
+  <title>Editar Automóvel</title>
 </head>
 <body>
-  <h1>Editar Usuário</h1>
+  <h1 class="center-div">Editar Automóvel Cadastrado</h1>
 
   <?php if (isset($user)): ?>
     <!-- Verifica se o usuário existe e exibe o formulário de edição -->
@@ -81,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <!-- O formulário é enviado para a mesma página -->
 
+      <fieldset>
       <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
       <!-- Cria um campo oculto com o ID do veiculo -->
 
@@ -104,8 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="text" name="estado" value="<?php echo $user['estado']; ?>"><br><br>
       <!-- Campo de entrada para o estado do veiculo -->
 
-      <input type="submit" value="Salvar">
+      <button type="submit">Salvar</button>
       <!-- Botão de envio do formulário -->
+      <button type="reset">Limpar</button>
+      </fieldset>
+
     </form>
 
   <?php endif; ?>
