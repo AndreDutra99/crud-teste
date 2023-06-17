@@ -5,20 +5,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Verifica se o método da requisição é POST
 
   $id = $_POST['id'];
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
+  $carro = $_POST['carro'];
+  $marca = $_POST['marca'];
+  $cor = $_POST['cor'];
+  $ano = $_POST['ano'];
+  $estado = $_POST['estado'];
 
   // Obtém os dados enviados via formulário
 
   try {
-    $stmt = $conn->prepare("UPDATE users SET name = :name, email = :email, phone = :phone WHERE id = :id");
+    $stmt = $conn->prepare("UPDATE users SET carro = :carro, marca = :marca, cor = :cor, ano = :ano , estado = :estado WHERE id = :id");
     // Prepara a consulta SQL para atualizar o registro na tabela "users"
 
     $stmt->bindParam(':id', $id);
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':carro', $carro);
+    $stmt->bindParam(':marca', $marca);
+    $stmt->bindParam(':cor', $cor);
+    $stmt->bindParam(':ano', $ano);
+    $stmt->bindParam(':estado', $estado);
     // Vincula os parâmetros aos valores obtidos do formulário
 
     $stmt->execute();
@@ -78,19 +82,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <!-- O formulário é enviado para a mesma página -->
 
       <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-      <!-- Cria um campo oculto com o ID do usuário -->
+      <!-- Cria um campo oculto com o ID do veiculo -->
 
-      <label for="name">Nome:</label>
-      <input type="text" name="name" value="<?php echo $user['name']; ?>"><br><br>
-      <!-- Campo de entrada para o nome do usuário -->
+      <label for="carro">Carro:</label>
+      <input type="text" name="carro" value="<?php echo $user['carro']; ?>"><br><br>
+      <!-- Campo de entrada para o nome do veiculo -->
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" value="<?php echo $user['email']; ?>"><br><br>
-      <!-- Campo de entrada para o email do usuário -->
+      <label for="marca">Marca:</label>
+      <input type="text" name="marca" value="<?php echo $user['marca']; ?>"><br><br>
+      <!-- Campo de entrada para a cor do carro -->
 
-      <label for="phone">Telefone:</label>
-      <input type="tel" name="phone" value="<?php echo $user['phone']; ?>"><br><br>
-      <!-- Campo de entrada para o telefone do usuário -->
+      <label for="cor">Cor:</label>
+      <input type="text" name="cor" value="<?php echo $user['cor']; ?>"><br><br>
+      <!-- Campo de entrada para a cor do carro -->
+
+      <label for="ano">Ano:</label>
+      <input type="text" name="ano" value="<?php echo $user['ano']; ?>"><br><br>
+      <!-- Campo de entrada para o ano do veiculo -->
+
+      <label for="estado">Estado:</label>
+      <input type="text" name="estado" value="<?php echo $user['estado']; ?>"><br><br>
+      <!-- Campo de entrada para o estado do veiculo -->
 
       <input type="submit" value="Salvar">
       <!-- Botão de envio do formulário -->

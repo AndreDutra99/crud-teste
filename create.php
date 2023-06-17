@@ -5,27 +5,39 @@ require 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Verifica se o método de requisição é POST
 
-  $name = $_POST['name'];
-  // Obtém o valor do campo "name" do formulário
+  $carro = $_POST['carro'];
+  // Obtém o valor do campo "carro" do formulário
 
-  $email = $_POST['email'];
-  // Obtém o valor do campo "email" do formulário
+  $marca = $_POST['marca'];
+  // Obtém o valor do campo "marca" do formulário
 
-  $phone = $_POST['phone'];
-  // Obtém o valor do campo "phone" do formulário
+  $cor = $_POST['cor'];
+  // Obtém o valor do campo "cor" do formulário
+
+  $ano = $_POST['ano'];
+  // Obtém o valor do campo "ano" do formulário
+
+  $estado = $_POST['estado'];
+  // Obtém o valor do campo "estado" do formulário
 
   try {
-    $stmt = $conn->prepare("INSERT INTO users (name, email, phone) VALUES (:name, :email, :phone)");
+    $stmt = $conn->prepare("INSERT INTO users (carro, marca, cor, ano, estado) VALUES (:carro, :marca, :cor, :ano, :estado)");
     // Prepara a consulta SQL para inserir um novo registro na tabela "users"
 
-    $stmt->bindParam(':name', $name);
-    // Vincula o parâmetro ":name" ao valor obtido do campo "name"
+    $stmt->bindParam(':carro', $carro);
+    // Vincula o parâmetro ":carro" ao valor obtido do campo "carro"
 
-    $stmt->bindParam(':email', $email);
-    // Vincula o parâmetro ":email" ao valor obtido do campo "email"
+    $stmt->bindParam(':marca', $marca);
+    // Vincula o parâmetro ":marca" ao valor obtido do campo "marca"
 
-    $stmt->bindParam(':phone', $phone);
-    // Vincula o parâmetro ":phone" ao valor obtido do campo "phone"
+    $stmt->bindParam(':cor', $cor);
+    // Vincula o parâmetro ":cor" ao valor obtido do campo "cor"
+
+    $stmt->bindParam(':ano', $ano);
+    // Vincula o parâmetro ":ano" ao valor obtido do campo "ano"
+
+    $stmt->bindParam(':estado', $estado);
+    // Vincula o parâmetro ":estado" ao valor obtido do campo "estado"
 
     $stmt->execute();
     // Executa a consulta SQL para inserir o novo registro

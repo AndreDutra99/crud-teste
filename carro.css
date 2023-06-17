@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body {
+    background-color:white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+td {
+    background-color: white
+}
+
+caption {
+    border: 1px solid #ccc;
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+}
+
+fieldset {
+    background-color: #899599;
+    width: 20%;
+    margin: auto;
+}
+
+.letrabranco {
+    color: white;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+body {
+    background-image: url('img/car.jpg.jpg');
+}
+
+legend {
+    color: rgb(248, 247, 244); 
+}
+
